@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\m5moa\source\repos\pacman\pacman\animation.h(28): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\m5moa\source\repos\pacman\pacman\main.cpp(20): warning C4305: 'argument': truncation from 'double' to 'float'
+  PacMan.vcxproj -> C:\Users\m5moa\source\repos\PacMan\Debug\PacMan.exe
