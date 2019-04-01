@@ -1,8 +1,8 @@
-# PacMan
+# PacMan, //click the edit button//
 a pacman game for 1st year of college
 
 #                                            ___________IMPORTANT_______________
-//click the edit button//
+
 #Rules:
 //whenever you want to add something, change this main and do a pull-request.
 //if you have an extra class or header file, upload that header file using upload file.
