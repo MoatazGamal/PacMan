@@ -8,7 +8,8 @@ a pacman game for 1st year of college
 //if you have an extra class or header file, upload that header file using upload file.
 //NEVER upload folders, only headers,cpp files and images or audio files.
 //we both well have the same main.cpp, copy and past the new files into your visual studio solution.
-
+//no one should change or remove some of the other persons code without permission.
+                                            ____________________________________ 
 
 //write what you will work on here.
 
