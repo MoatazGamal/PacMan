@@ -9,17 +9,16 @@ a pacman game for 1st year of college
 //NEVER upload folders, only headers,cpp files and images or audio files.
 //we both well have the same main.cpp, copy and past the new files into your visual studio solution.
 //no one should change or remove some of the other persons code without permission.
-//if possible, use object oriented programing and header files a lot rather than adding to the main() unnecessarily.
+//if possible, use object oriented programing and header files a lot rather than adding to the main() unnecessarily. 
+//changes to README.md should be commited directly to 'MASTER'.
                                             ____________________________________ 
 
 //write what you will work on here.
-
 Moataz is working on:
  1- fixing the collision. // working on right now, well take some time.
  2- eating the dots and deleting them from the screen. // will work on this next.
- 3- Blinky. // Work on moving blinky with a*.
+ 3- Blinky. // Work on moving blinky with a*.mas
 Mohamed is working on:
  //...
  //...
- //..,
-
+ //..
