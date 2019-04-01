@@ -9,6 +9,7 @@ a pacman game for 1st year of college
 //NEVER upload folders, only headers,cpp files and images or audio files.
 //we both well have the same main.cpp, copy and past the new files into your visual studio solution.
 //no one should change or remove some of the other persons code without permission.
+//if possible, use object oriented programing and header files a lot rather than adding to the main() unnecessarily.
                                             ____________________________________ 
 
 //write what you will work on here.
