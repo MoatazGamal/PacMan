@@ -1,7 +1,7 @@
 # PacMan
 a pacman game for 1st year of college
 
-//write what you will work on here
+//write what you will work on here, click the edit button.
 
 Moataz is working on:
  1- fixing the collision. // working on right now, well take some time.
