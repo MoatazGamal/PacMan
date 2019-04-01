@@ -91,6 +91,7 @@ int main() {
 		}
 	}
 	pacman.setPosition(pac_start.x -16,pac_start.y - 16);
+	//stuff regarding collision, ignore this until I fix it later and upload a fix.
 	/*Vector2f current_pos = pacman.getPosition();
 	int row = current_pos.x / 32 - 12;
 	int column = current_pos.y / 32 - 12;*/
@@ -116,40 +117,29 @@ int main() {
 //-------------------------------------------------------------------//
 		//handel input;
 		Vector2f current_pos = pacman.getPosition();
-		int row = current_pos.x / 32 - 12;
+		
+		//stuff regarding collision, ignore this until I fix it later and upload a fix.
+		/*int row = current_pos.x / 32 - 12;
 		int column = current_pos.y / 32 - 12;
-		std::cout << pac_start.x<<" "<< pac_start.y<<std::endl;
+		std::cout << pac_start.x<<" "<< pac_start.y<<std::endl;*/
 		
 	//	Vector2f direction;
 		if (event.key.code == Keyboard::Up)
 		{
-			if (tilesRepresent[row][column - 1] != 1)
-			{
-				pacman.move(0.0f, -1.0f);
-			}
+			direction = {0.0 , -1.0};
 		}
 
 		else if (event.key.code == Keyboard::Down)
 		{
-			if (tilesRepresent[row][column + 1] != 1)
-			{
-				pacman.move(0.0f, 1.0f);
-			}
+			direction = {0.0 , 1.0};
 		}
 		else if (event.key.code == Keyboard::Right)
 		{
-			if (tilesRepresent[row + 1][column] != 1)
-			{
-				pacman.move(1.0f, 0.0f);
-			}
-			
+			direction = {1.0 , 0.0};
 		}
 		else if (event.key.code == Keyboard::Left)
 		{
-			if (tilesRepresent[row - 1][column] != 1)
-			{
-				pacman.move(-1.0f, 0.0f);
-			}
+			direction = {-1.0 , 0.0};
 		}
 //--------------------------------------------------------------------//
 		
@@ -164,6 +154,7 @@ int main() {
 			}
 		}
 		
+		pacman.move(direction);
 		window.draw(pacman);
 		window.display();
 //--------------------------------------------------------------------//end gameloop
