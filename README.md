@@ -4,7 +4,7 @@ a pacman game for 1st year of college
 #                                            ___________IMPORTANT_______________
 
 #Rules:
-//whenever you want to add something, change this main and do a pull-request.
+//whenever you want to add something, change main() and do a 'PULL_REQUEST' to see what changes have been made.
 //if you have an extra class or header file, upload that header file using upload file.
 //NEVER upload folders, only headers,cpp files and images or audio files.
 //we both well have the same main.cpp, copy and past the new files into your visual studio solution.
