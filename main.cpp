@@ -1,13 +1,8 @@
-//whenever you want to add something, change this main and do a pull-request.
-//if you have an extra class or header file, upload that header file using upload file.
-//NEVER upload folders, only headers,cpps and images or audio files.
-//we both well have the same main.cpp, copy and past the new files into your visual studio solution.
-
 
 #include<SFML/Graphics.hpp>
 #include<iostream>
 
-#include "Tile.h"
+#include "Header.h"
 
 using namespace sf;
 //-------------------------------------------------------------------//
@@ -26,9 +21,10 @@ int main() {
 	Texture texture;
 	texture.loadFromFile("resized_map.png");
 	Sprite s_map(texture);
-	Vector2f pac_start;
 	
-//-------------------------------------------------------------------//
+
+	int row, column;
+	//-------------------------------------------------------------------//
 
 	Tile tiles[31][28]; //[y][x] y first then x
 	int tilesRepresent[31][28] =
@@ -65,12 +61,12 @@ int main() {
 	  {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 	  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 	};
-	
+
 	for (int i = 0; i < 28; i++)
 	{
 		for (int j = 0; j < 31; j++)
 		{
-			tiles[j][i] = Tile(32*i+12,32*j+12);
+			tiles[j][i] = Tile(32 * i + 12, 32 * j + 12);
 			switch (tilesRepresent[j][i])
 			{
 			case 1: // 1 is wall
@@ -86,22 +82,19 @@ int main() {
 				tiles[j][i].eaten = true;
 				break;
 			case 5: // pacaman's starting position
-				pac_start = tiles[j][i].pos;
+				row = j;
+				column = i;
 			}
 		}
 	}
-	pacman.setPosition(pac_start.x -16,pac_start.y - 16);
-	//stuff regarding collision, ignore this until I fix it later and upload a fix.
-	/*Vector2f current_pos = pacman.getPosition();
-	int row = current_pos.x / 32 - 12;
-	int column = current_pos.y / 32 - 12;*/
-
-//-------------------------------------------------------------------//
 	
-	// start game loop.
+
+	//-------------------------------------------------------------------//
+
+		// start game loop.
 	while (window.isOpen())
 	{
-//-------------------------------------------------------------------//
+		//-------------------------------------------------------------------//
 
 		Event event;
 		while (window.pollEvent(event))
@@ -111,41 +104,46 @@ int main() {
 
 			if (Keyboard::isKeyPressed(Keyboard::Escape))
 				window.close();
-			
-		
+
+
 		}
-//-------------------------------------------------------------------//
-		//handel input;
-		Vector2f current_pos = pacman.getPosition();
+		//-------------------------------------------------------------------//
 		
-		//stuff regarding collision, ignore this until I fix it later and upload a fix.
-		/*int row = current_pos.x / 32 - 12;
-		int column = current_pos.y / 32 - 12;
-		std::cout << pac_start.x<<" "<< pac_start.y<<std::endl;*/
-		
-	//	Vector2f direction;
-		if (event.key.code == Keyboard::Up)
+
+
+		switch (event.key.code)
 		{
-			direction = {0.0 , -1.0};
+		case Keyboard::Up:
+			if (row > 0 && tilesRepresent[row - 1][column] != 1)
+			{
+				row -= 1;
+			}
+			break;
+		case Keyboard::Down:
+			if (row < 31 && tilesRepresent[row + 1][column] != 1)
+			{
+				row += 1;
+			}
+			break;
+		case Keyboard::Right:
+			if (column < 28 && tilesRepresent[row][column + 1] != 1)
+			{
+				column += 1;
+			}
+			break;
+		case Keyboard::Left:
+			if (column > 0 && tilesRepresent[row][column - 1] != 1)
+			{
+				column -= 1;
+			}
+			break;
 		}
 
-		else if (event.key.code == Keyboard::Down)
-		{
-			direction = {0.0 , 1.0};
-		}
-		else if (event.key.code == Keyboard::Right)
-		{
-			direction = {1.0 , 0.0};
-		}
-		else if (event.key.code == Keyboard::Left)
-		{
-			direction = {-1.0 , 0.0};
-		}
-//--------------------------------------------------------------------//
-		
+		//--------------------------------------------------------------------//
+
 		window.clear();
 		window.draw(s_map);
-
+		pacman.setPosition((tiles[row][column].pos.x), (tiles[row][column].pos.y));
 		for (int i = 0; i < 28; i++)
 		{
 			for (int j = 0; j < 31; j++)
@@ -153,11 +151,10 @@ int main() {
 				tiles[j][i].show(window);
 			}
 		}
-		
-		pacman.move(direction);
+
 		window.draw(pacman);
 		window.display();
-//--------------------------------------------------------------------//end gameloop
+		//--------------------------------------------------------------------//end gameloop
 
 	}
 
