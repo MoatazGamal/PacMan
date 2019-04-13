@@ -16,7 +16,6 @@ int main() {
 
 	CircleShape pacman(20);
 	pacman.setFillColor(Color::Yellow);
-	pacman.setPosition(Vector2f(896 / 2, 992 / 2));
 
 	Texture texture;
 	texture.loadFromFile("resized_map.png");
